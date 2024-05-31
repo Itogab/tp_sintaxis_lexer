@@ -5,50 +5,6 @@ ESTADO_TRAMPA = "EN ESTADO TRAMPA" # La distinción entre estado trampa y no fin
                                    # estado puede cambiar, mientras en el trampa no pues es un pozo
 TOKENS_POSIBLES = [("TOKEN1", automata_token1),("TOKEN2", automata_token2),...,("ID", automata_id),...,("TOKENJ", automata_tokenj)]
 
-# EJEMPLO DE AFD IMPLEMENTADO POR CODIFICACIÓN DIRECTA
-def automata_token1(lexema): # Autómata correspondiente al token 1
-    estado = 0 #Variable que contendrá el estado actual del AF
-    estados_finales = [1] # Conjunto de estados finales para este autómata
-    for caracter in lexema:
-        if estado == 0 and caracter==...:
-            estado = ...
-        elif estado == ... and ...:
-            ....
-        elif ....
-        ....
-        ....
-        else:
-            estado = -1
-            break # Si se llega a un estado trampa, finaliza la simulación del autómata
-
-    if estado == -1:
-        return ESTADO_TRAMPA
-    if estado in estados_finales:
-        return ESTADO_FINAL
-    else:
-        return ESTADO_NO_FINAL
-
-....
-....
-....
-# EJEMPLO DE AFD IMPLEMENTADO POR TABLA
-def automata_tokenj(lexema): # Autómata correspondiente al token j
-    estado = 0 #Variable que contendrá el estado actual del AFD
-    estados_finales = [1] # Conjunto de estados finales para este autómata
-    delta = {0:{'a1': estadoi,'a2': estadok,...}},...,n:{'a1': estadoi,...,'at': estadok,...}}
-    for caracter in lexema:
-        if caracter in delta[estado].keys():
-            estado = delta[estado][caracter]
-        else:
-            estado = -1
-            break # Si se llega a un estado trampa, finaliza la simulación del autómata
-
-    if estado == -1:
-        return ESTADO_TRAMPA
-    if estado in estados_finales:
-        return ESTADO_FINAL
-    else:
-        return ESTADO_NO_FINAL
 
 def lexer(codigo_fuente):
     tokens = [] # listada de tokens que devolverá el lexer correspondiente al código fuente ingresado, se inicializa vacia

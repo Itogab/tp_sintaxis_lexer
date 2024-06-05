@@ -16,7 +16,7 @@ from Automatas.Puntos import *
 ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA" 
-TOKENS_POSIBLES = [('TOKENNUM',automata_num),('TOKENCALL',automata_call),('TOKENPUNTOCOMA',automata_punto_coma),('TOKENASIGN',automata_asign),('TOKENID',automata_id)]
+TOKENS_POSIBLES = [('TOKENNUM',automata_num),('TOKENCALL',automata_call),('TOKENPUNTOCOMA',automata_punto_coma),('TOKENASIGN',automata_asign),('TOKENID',automata_id),('TOKENESPACIO',espacio_en_blanco)]
 
 
 def lexer(codigo_fuente):
@@ -27,7 +27,7 @@ def lexer(codigo_fuente):
         comienzo_lexema = posicion_actual # el siguiente lexema comienza en la última posición procesada
         posibles_tokens = [] # categorías de tokens posibles para el lexema actual
         posibles_tokens_con_un_caracter_mas = [] # categorías de tokens posibles para el lexema actual mas el próximo caracter
-        lexema = "" # Se inicializa el siguiente lexema
+        lexema = " " # Se inicializa el siguiente lexema
         var_aux_todos_en_estado_trampa = False
 
         while not var_aux_todos_en_estado_trampa:
@@ -67,4 +67,4 @@ def lexer(codigo_fuente):
         tokens.append(token)
     return tokens
 
-print(lexer('var nombre := hola'))
+print(lexer('var '))

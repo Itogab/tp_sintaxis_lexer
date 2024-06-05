@@ -32,11 +32,11 @@ def lexer(codigo_fuente):
 
         while not var_aux_todos_en_estado_trampa:
             var_aux_todos_en_estado_trampa = True
-            aux = lexema
+            topeDelLexema = lexema
             lexema = codigo_fuente[comienzo_lexema:(posicion_actual + 1)]
             posibles_tokens_con_un_caracter_mas = []
             
-            if aux != lexema:
+            if topeDelLexema != lexema:
                 for (un_tipo_de_token, afd) in TOKENS_POSIBLES:
                     simulacion_afd = afd(lexema) # simula la ejecución de cada AFD para el lexema actual agregando un carácter
                     if simulacion_afd == ESTADO_FINAL:

@@ -21,4 +21,3 @@ def espacio_en_blanco(lexema):
         
         
         
-print(espacio_en_blanco(''))

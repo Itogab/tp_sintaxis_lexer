@@ -1,19 +1,28 @@
+# Todos los imports
+from Automatas.Call import *
+from Automatas.Coma_punto import *
+from Automatas.Id import *
+from Automatas.Corchetes import *
+from Automatas.Espacio_en_blanco import *
+from Automatas.Numeral import *
+from Automatas.Numeros import *
+from Automatas.OperadorAsing import *
+from Automatas.OperadorMat import *
+from Automatas.OperadorRel import *
+from Automatas.Parentesis import *
+from Automatas.Puntos import *
+#
+
 ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA" # La distinción entre estado trampa y no final es porque si bien en ambos casos la cadena 
                                    # actual no es aceptada, estando en un estado final ante el siguiente carácter de entrada el 
                                    # estado puede cambiar, mientras en el trampa no pues es un pozo
-TOKENS_POSIBLES = [("TOKEN1", automata_token1),("TOKEN2", automata_token2),...,("ID", automata_id),...,("TOKENJ", automata_tokenj)]
-
-
+TOKENS_POSIBLES = [('TOKENID',automata_id)]
 def lexer(codigo_fuente):
     tokens = [] # listada de tokens que devolverá el lexer correspondiente al código fuente ingresado, se inicializa vacia
     posicion_actual = 0   # carácter actual en el código fuente que se esta procesando
     while posicion_actual < len(codigo_fuente):
-        while codigo_fuente[posicion_actual].isspace(): # NO LO VAMOS A HACER ASI
-                                                        # CREAR UN TOKEN QUE DETECTE ESPACIOS \n y \t
-             posicion_actual = posicion_actual +1
-
         comienzo_lexema = posicion_actual # el siguiente lexema comienza en la última posición procesada
         posibles_tokens = [] # categorías de tokens posibles para el lexema actual
         posibles_tokens_con_un_caracter_mas = [] # categorías de tokens posibles para el lexema actual mas el próximo caracter

@@ -1,3 +1,6 @@
+ESTADO_FINAL = "ESTADO FINAL"
+ESTADO_NO_FINAL = "NO ACEPTADO"
+ESTADO_TRAMPA = "EN ESTADO TRAMPA"
 def automata_call(lexema):
     estado=0
     estados_finales = [4]

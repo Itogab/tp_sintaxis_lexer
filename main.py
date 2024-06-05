@@ -8,7 +8,6 @@ from Automatas.Numeral import *
 from Automatas.Numeros import *
 from Automatas.Operadorsumrest import*
 from Automatas.operadormultydiv import*
-from tp_sintaxis_lexer.Automatas.Operadorsumrest import *
 from Automatas.OperadorRel import *
 from Automatas.Parentesis import *
 from Automatas.Puntos import *
@@ -17,7 +16,7 @@ from Automatas.Puntos import *
 ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA" 
-TOKENS_POSIBLES = [('TOKENNUM',automata_num),('TOKENCALL',automata_call),('TOKENPUNTOCOMA',automata_punto_coma),('TOKENASIGN',automata_asign),('TOKENID',automata_id),('TOKENESPACIO',espacio_en_blanco),('TOKENCORCHETES',automata_corchetes),('TOKENSUMARESTA',automata_sumrest),('TOKENMULTDIV',automata_multdiv)]
+TOKENS_POSIBLES = [('TOKENNUM',automata_num),('TOKENCALL',automata_call),('TOKENPUNTOCOMA',automata_punto_coma),('TOKENID',automata_id),('TOKENESPACIO',espacio_en_blanco),('TOKENCORCHETES',automata_corchetes),('TOKENSUMARESTA',automata_sumrest),('TOKENMULTDIV',automata_multdiv)]
 
 
 def lexer(codigo_fuente):
@@ -68,4 +67,4 @@ def lexer(codigo_fuente):
         tokens.append(token)
     return tokens
 
-print(lexer('var '))
+print(lexer('                            '))

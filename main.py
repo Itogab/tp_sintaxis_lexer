@@ -43,8 +43,6 @@ def lexer(codigo_fuente):
                         if un_tipo_de_token != 'TOKENESPACIO':
                             posibles_tokens_con_un_caracter_mas.append(un_tipo_de_token)
                             var_aux_todos_en_estado_trampa = False
-                        else:
-                            var_aux_todos_en_estado_trampa = True
                     elif simulacion_afd == ESTADO_NO_FINAL:
                         var_aux_todos_en_estado_trampa = False
             else:
@@ -59,12 +57,23 @@ def lexer(codigo_fuente):
         if len(posibles_tokens) == 0:
             raise Exception("ERROR:TOKEN DESCONOCIDO " + lexema)
 
-        un_tipo_de_token = posibles_tokens[0] # Mientras haya posibilidad de avanzar, ya sea por estar en un estado final o no 
+        # Falta retroceder un caracter para evitar el carater responsable que puso a todos en trampa.
+        un_tipo_de_token = posibles_tokens[0] # Mientras haya posibilidad de avanzar, ya sea por estar en un estado final o no
                                               # final el algoritmo avanza, con lo cual siempre devuelve el lexema más largo que 
                                               # coincide con un token; En caso de haber más de uno, devuelve el primero de la lista
                                               # según la precedencia elegida por el creador del lexer en TOKENS_POSIBLES
         token = (un_tipo_de_token, lexema)
         tokens.append(token)
+
+        # Al final de todo hay que agregar el caso en que si el automata de todos espacios en blanco es verdadero.
+
     return tokens
 
-print(lexer('                            '))
+print(lexer("var hola"))
+
+# Casos de error (sin tope de Lexema): 
+# "var hola  " Tira error
+# "var hola " Lo acepta con el espacio
+# "var hola " (con tab) tira error
+# " " tira 
+

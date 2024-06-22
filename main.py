@@ -48,8 +48,7 @@ def lexer(codigo_fuente):
                 posicion_actual = posicion_actual + 1 #Convierte la posición simulada en la actual, ya sea para continuar avanzando en 
                                                   # en el lexema actual, o convertir en la posición inicial del próximo
             lexema = codigo_fuente[comienzo_lexema:posicion_actual - 1]
-        
-       
+            
 
         if len(posibles_tokens) == 0:
             raise Exception("ERROR:TOKEN DESCONOCIDO " + lexema)
@@ -59,12 +58,13 @@ def lexer(codigo_fuente):
                                               # final el algoritmo avanza, con lo cual siempre devuelve el lexema más largo que 
                                               # coincide con un token; En caso de haber más de uno, devuelve el primero de la lista
                                               # según la precedencia elegida por el creador del lexer en TOKENS_POSIBLES
-        token = (un_tipo_de_token, lexema)
-        tokens.append(token)
-
+            token = (un_tipo_de_token, lexema)
+            tokens.append(token)
+            
+        posicion_actual = comienzo_lexema + len(lexema)
     return tokens
 
-print(lexer("var hola := 2"))
+print(lexer("2var"))
 
 # Casos de error (sin tope de Lexema): 
 # "var hola  " Tira error

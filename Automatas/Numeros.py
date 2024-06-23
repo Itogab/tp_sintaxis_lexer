@@ -10,6 +10,9 @@ def automata_num(lexema):
     for caracter in lexema:
         if caracter in delta[estado].keys():
             estado=delta[estado][caracter]
+        elif estado == 1 and caracter.isalpha(): 
+            estado = ESTADO_TRAMPA
+            break
         else:
             estado = -1
             break

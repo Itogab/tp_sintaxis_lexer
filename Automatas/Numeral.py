@@ -23,5 +23,3 @@ def automata_numeral(lexema):
     else:
         return ESTADO_NO_FINAL
 
-print(automata_numeral('#'))
-print(automata_numeral('##'))

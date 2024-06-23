@@ -23,5 +23,3 @@ def automata_punto(lexema):
     else:
         return ESTADO_NO_FINAL
 
-print(automata_punto('.'))
-print(automata_punto('..'))

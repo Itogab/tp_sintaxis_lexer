@@ -4,9 +4,9 @@ ESTADO_TRAMPA = "EN ESTADO TRAMPA"
 
 def automata_relop(lexema):
     estado = 0
-    estados_finales = [1, 2]
+    estados_finales = [1,2]
     delta = {
-        0: {'<': 1, '>': 1, '=': 1, '!': 2},
+        0: {'<': 1, '>': 1,'!': 2},
         1: {'=': 2},
         2: {'=': 1}
     }
@@ -25,10 +25,4 @@ def automata_relop(lexema):
     else:
         return ESTADO_NO_FINAL
 
-print(automata_relop('<'))
-print(automata_relop('<='))
-print(automata_relop('!='))
 
-print(automata_relop('<<')) 
-print(automata_relop('<=='))
-print(automata_relop('!=='))

@@ -19,4 +19,3 @@ def automata_sumrest(lexema):
     else:
         return ESTADO_NO_FINAL
     
-print(automata_sumrest('++++'))

@@ -69,4 +69,4 @@ def lexer(codigo_fuente):
             tokens.append(('TOKENESPACIO', ' '))	
     return tokens
 
-print(lexer("2  var = 3"))
+print(lexer("Roman el ultimo 10 () [] + -"))

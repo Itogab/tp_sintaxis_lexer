@@ -53,7 +53,7 @@ def lexer(codigo_fuente):
         
 
         if len(posibles_tokens) == 0:
-            print("Error: no existe token válido para el lexema '" + lexema + "'")
+            raise Exception("ERROR:TOKEN DESCONOCIDO " + lexema)
 
 
         if posibles_tokens[0] != 'TOKENESPACIO':
@@ -66,7 +66,7 @@ def lexer(codigo_fuente):
             
         posicion_actual = comienzo_lexema + len(lexema)
         if codigo_fuente[posicion_actual - 1] == ' ':
-            tokens.append(('TOKENESPACIO', ' '))	
+            pass
     return tokens
 
 print(lexer("Roman el ultimo 10 () [] + -"))

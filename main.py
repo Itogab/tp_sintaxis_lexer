@@ -13,12 +13,20 @@ from Automatas.Parentesis import *
 from Automatas.Puntos import *
 from Automatas.OperadorAsing import *
 from Automatas.Operadorigual import *
+from Automatas.begin import *
+from Automatas.do import *
+from Automatas.end import *
+from Automatas.If import *
+from Automatas.odd import *
+from Automatas.then import *
+from Automatas.While import *
+    
 #
 
 ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA" 
-TOKENS_POSIBLES = [('TOKENIGUAL',automata_igual),('TOKENPARENTESIS',automata_parentesis),('TOKENNUM',automata_num),('TOKENCALL',automata_call),('TOKENPUNTOCOMA',automata_punto_coma),('TOKENID',automata_id),('TOKENESPACIO',espacio_en_blanco),('TOKENCORCHETES',automata_corchetes),('TOKENSUMARESTA',automata_sumrest),('TOKENMULTDIV',automata_multdiv),('TOKENASIGN',automata_asign),('TOKENPUNTO',automata_punto),('TOKENOPERADORREL',automata_relop),('TOKENNUMERAL',automata_numeral)]
+TOKENS_POSIBLES = [('TOKENIGUAL',automata_igual),('TOKENPARENTESIS',automata_parentesis),('TOKENNUM',automata_num),('TOKENCALL',automata_call),('TOKENBEGIN',automata_begin),('TOKENEND',automata_end),('TOKENIF',automata_if),('TOKENODD',automata_odd),('TOKENTHEN',automata_then),('TOKENWHILE',automata_while),('TOKENPUNTOCOMA',automata_punto_coma),('TOKENID',automata_id),('TOKENESPACIO',espacio_en_blanco),('TOKENCORCHETES',automata_corchetes),('TOKENSUMARESTA',automata_sumrest),('TOKENMULTDIV',automata_multdiv),('TOKENASIGN',automata_asign),('TOKENPUNTO',automata_punto),('TOKENOPERADORREL',automata_relop),('TOKENNUMERAL',automata_numeral)]
 
 def lexer(codigo_fuente):
     tokens = [] # listada de tokens que devolverá el lexer correspondiente al código fuente ingresado, se inicializa vacia
@@ -69,4 +77,4 @@ def lexer(codigo_fuente):
             pass
     return tokens
 
-print(lexer("Roman el ultimo 10 () [] + -"))
+print(lexer("if (lol >= 2)"))

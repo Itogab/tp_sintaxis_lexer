@@ -1,18 +1,18 @@
 # Todos los imports
 from Automatas.Call import *
-from Automatas.Coma_punto import *
 from Automatas.Id import *
-from Automatas.Corchetes import *
+from Automatas.parentesisA import *
+from Automatas.ParentesisC import *
 from Automatas.Espacio_en_blanco import *
 from Automatas.Numeral import *
 from Automatas.Numeros import *
+from Automatas.PuntoYComa import *
+from Automatas.Coma import *
 from Automatas.Operadorsumrest import*
 from Automatas.operadormultydiv import*
 from Automatas.OperadorRel import *
-from Automatas.Parentesis import *
-from Automatas.Puntos import *
+from Automatas.Punto import *
 from Automatas.OperadorAsing import *
-from Automatas.Operadorigual import *
 from Automatas.begin import *
 from Automatas.do import *
 from Automatas.end import *
@@ -27,7 +27,7 @@ from Automatas.Const import *
 ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA" 
-TOKENS_POSIBLES = [('TOKENIGUAL',automata_igual),('TOKENPARENTESIS',automata_parentesis),('TOKENNUM',automata_num),('TOKENVAR',automata_var),('TOKENCONST',automata_const),('TOKENCALL',automata_call),('TOKENBEGIN',automata_begin),('TOKENEND',automata_end),('TOKENIF',automata_if),('TOKENODD',automata_odd),('TOKENTHEN',automata_then),('TOKENWHILE',automata_while),('TOKENPUNTOCOMA',automata_punto_coma),('TOKENID',automata_id),('TOKENESPACIO',espacio_en_blanco),('TOKENCORCHETES',automata_corchetes),('TOKENSUMARESTA',automata_sumrest),('TOKENMULTDIV',automata_multdiv),('TOKENASIGN',automata_asign),('TOKENPUNTO',automata_punto),('TOKENOPERADORREL',automata_relop),('TOKENNUMERAL',automata_numeral)]
+TOKENS_POSIBLES = [('TOKENPARENTESISA',automata_parentesisA),('TOKENPARENTESISC',automata_parentesisC),('TOKENNUM',automata_num),('TOKENVAR',automata_var),('TOKENCONST',automata_const),('TOKENCALL',automata_call),('TOKENBEGIN',automata_begin),('TOKENEND',automata_end),('TOKENIF',automata_if),('TOKENODD',automata_odd),('TOKENTHEN',automata_then),('TOKENWHILE',automata_while),('TOKENPUNTOYCOMA',automata_puntoYcoma),('TOKENCOMA',automata_coma),('TOKENPUNTO',automata_punto),('TOKENID',automata_id),('TOKENESPACIO',espacio_en_blanco),('TOKENSUMARESTA',automata_sumrest),('TOKENMULTDIV',automata_multdiv),('TOKENASIGN',automata_asign),('TOKENPUNTO',automata_punto),('TOKENOPERADORREL',automata_relop),('TOKENNUMERAL',automata_numeral)]
 
 def lexer(codigo_fuente):
     tokens = [] # listada de tokens que devolverá el lexer correspondiente al código fuente ingresado, se inicializa vacia
@@ -74,8 +74,6 @@ def lexer(codigo_fuente):
             tokens.append(token)
             
         posicion_actual = comienzo_lexema + len(lexema)
-        if codigo_fuente[posicion_actual - 1] == ' ':
-            pass
     return tokens
 
-print(lexer("if ( (const lol = 2) >= 2)"))
+print(lexer("var hola := 2 + 2a"))

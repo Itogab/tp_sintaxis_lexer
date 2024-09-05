@@ -2,11 +2,11 @@ ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA"
 
-def automata_parentesisA(lexema):
+def automata_parentesisC(lexema):
     estado = 0
     estadofinal =[1]
     for caracter in lexema:
-        if caracter == "(" and estado == 0:
+        if caracter == ")" and estado == 0:
             estado = 1
         else:
             estado = -1

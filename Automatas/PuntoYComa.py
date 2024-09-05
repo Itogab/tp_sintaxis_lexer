@@ -1,11 +1,10 @@
 ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA"
-
-def automata_parentesis(lexema):
+def automata_puntoYcoma(lexema):
     estado=0
     estados_finales = [1]
-    delta= {0:{'(':1,')':1,'()':1},1:{'(':1,')':1,'()':1}}
+    delta= {0:{';':1},1:{}}
     
     for caracter in lexema:
         if caracter in delta[estado].keys():
@@ -19,3 +18,4 @@ def automata_parentesis(lexema):
         return ESTADO_FINAL
     else:
         return ESTADO_NO_FINAL
+    

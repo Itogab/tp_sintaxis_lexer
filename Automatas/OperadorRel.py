@@ -6,9 +6,10 @@ def automata_relop(lexema):
     estado = 0
     estados_finales = [1,2]
     delta = {
-        0: {'<': 1, '>': 1,'!': 2},
+        0: {'<': 1, '>': 1,'!': 2,'=':1},
         1: {'=': 2},
-        2: {'=': 1}
+        2: {'=':3},
+        3: {}
     }
     
     for caracter in lexema:

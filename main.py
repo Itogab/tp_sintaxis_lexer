@@ -22,12 +22,13 @@ from Automatas.then import *
 from Automatas.While import *
 from Automatas.Var import * 
 from Automatas.Const import *
+from Automatas.EOF import *
 #
 
 ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA" 
-TOKENS_POSIBLES = [('TOKENPARENTESISA',automata_parentesisA),('TOKENPARENTESISC',automata_parentesisC),('TOKENNUM',automata_num),('TOKENVAR',automata_var),('TOKENCONST',automata_const),('TOKENCALL',automata_call),('TOKENBEGIN',automata_begin),('TOKENEND',automata_end),('TOKENIF',automata_if),('TOKENODD',automata_odd),('TOKENTHEN',automata_then),('TOKENWHILE',automata_while),('TOKENPUNTOYCOMA',automata_puntoYcoma),('TOKENCOMA',automata_coma),('TOKENPUNTO',automata_punto),('TOKENID',automata_id),('TOKENESPACIO',espacio_en_blanco),('TOKENSUMARESTA',automata_sumrest),('TOKENMULTDIV',automata_multdiv),('TOKENASIGN',automata_asign),('TOKENPUNTO',automata_punto),('TOKENOPERADORREL',automata_relop),('TOKENNUMERAL',automata_numeral)]
+TOKENS_POSIBLES = [('TOKENPARENTESISA',automata_parentesisA),('TOKENPARENTESISC',automata_parentesisC),('TOKENNUM',automata_num),('TOKENVAR',automata_var),('TOKENCONST',automata_const),('TOKENCALL',automata_call),('TOKENBEGIN',automata_begin),('TOKENEND',automata_end),('TOKENIF',automata_if),('TOKENODD',automata_odd),('TOKENTHEN',automata_then),('TOKENWHILE',automata_while),('TOKENPUNTOYCOMA',automata_puntoYcoma),('TOKENCOMA',automata_coma),('TOKENPUNTO',automata_punto),('TOKENESPACIO',espacio_en_blanco),('TOKENSUMARESTA',automata_sumrest),('TOKENMULTDIV',automata_multdiv),('TOKENASIGN',automata_asign),('TOKENPUNTO',automata_punto),('TOKENOPERADORREL',automata_relop),('TOKENEOF',automata_eof),('TOKENID',automata_id)]
 
 def lexer(codigo_fuente):
     tokens = [] # listada de tokens que devolverá el lexer correspondiente al código fuente ingresado, se inicializa vacia
@@ -76,4 +77,4 @@ def lexer(codigo_fuente):
         posicion_actual = comienzo_lexema + len(lexema)
     return tokens
 
-print(lexer("var hola := 2 + 2a"))
+print(lexer("var x, aux; \n \n procedure cuadrado; \n begin \n \t aux:= x * x \n end; \n \n begin \t x := 1; \n \t while x <= 10 do \n \t begin \n \t \t call cuadrado; \n \t \t x := x + 1 \n \t end \n end #"))

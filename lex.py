@@ -76,5 +76,3 @@ def lexer(codigo_fuente):
             
         posicion_actual = comienzo_lexema + len(lexema)
     return tokens
-
-print(lexer("var x, aux; \n \n procedure cuadrado; \n begin \n \t aux:= x * x \n end; \n \n begin \t x := 1; \n \t while x <= 10 do \n \t begin \n \t \t call cuadrado; \n \t \t x := x + 1 \n \t end \n end #"))

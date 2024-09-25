@@ -1,10 +1,10 @@
 ESTADO_FINAL = "ESTADO FINAL"
 ESTADO_NO_FINAL = "NO ACEPTADO"
 ESTADO_TRAMPA = "EN ESTADO TRAMPA"
-def automata_eof(lexema):
+def automata_procedure(lexema):
     estado=0
-    estados_finales = [3,4]
-    delta= {0:{'e':1,'E':1,'#':4},1:{'o':2},2:{'f':3},3:{},4:{}}
+    estados_finales = [9]
+    delta= {0:{'p':1},1:{'r':2},2:{'o':3},3:{'c':4},4:{'e':5},5:{'d':6},6:{'u':7},7:{'r':8},8:{'e':9},9:{}}
     
     for caracter in lexema:
         if caracter in delta[estado].keys():

@@ -78,3 +78,5 @@ def lexer(codigo_fuente):
     tokens.append(('TOKENEOF', '#'))
     tokens.append(('Eof','Eof'))
     return tokens
+
+print(lexer('>=<>'))

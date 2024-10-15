@@ -126,7 +126,7 @@ def parser(codigo_fuente):
     def principal():
           pni('Program')
           token_actual = estado_parser['lista_tokens'][estado_parser['index']][0]
-          if token_actual == '#' and (estado_parser['error']): #or datos_parser['romper']:
+          if token_actual == '#' or (estado_parser['error']): #or datos_parser['romper']:
                print('La cadena no pertenece al lenguaje')
                return False
           else:
@@ -134,15 +134,16 @@ def parser(codigo_fuente):
                return True
         
     return principal()
-
+#No pertenecen
 print(parser(lexer('(2)')))
-print(parser(lexer('x:=2')))
 print(parser(lexer('2>>>>1 holaa finsi')))
+print(parser(lexer('and if then elsehola+*+')))
 print(parser(lexer('====><<>num if termino integral')))
 print(parser(lexer('++++--*////***(end)(procedure)(var)')))
-print(parser(lexer('begin call if while')))
+print(parser(lexer('var abc procedure faltaPuntoYcoma; call a;')))
+#Pertenecen
 print(parser(lexer('procedure x; begin x:=2; end;')))
-print(parser(lexer('and if then elsehola+*+')))
-print(parser(lexer('')))
-
-print(lexer('var x, aux;\n\nprocedure cuadrado;\nbegin\n\t aux:=x*x\nend;\n\nbegin\n\t x:= 1;\nwhile x <= 10 do\nbegin\n\tcall cuadrado;\nx := x + 1\nend\nend'))
+print(parser(lexer('procedure calcT; begin t := 4 * 3; if t > 5 then t := t - 1; end; begin t := t + 2; end')))
+print(parser(lexer('procedure pruebaProcedure; begin if x < 10 then x := x + 1; end; begin z := 3; end')))
+print(parser(lexer('var a,b,c; procedure prueba; call a; begin b := 3; c := 2 end')))
+print(parser(lexer('if numero < 20 then numero := numero + 1')))

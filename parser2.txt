@@ -1,0 +1,45 @@
+SD(Program → Block #) = {#, const,  var , begin , call , if, procedure , while , id}
+SD(Block → ConstDecl VarDecl ProcDecl Statement) = {const, ; , #, var , begin , call , if, procedure , while , id}
+SD(ConstDecl → const ConstAssigList ; ) = {const}
+SD(ConstDecl → λ ) = {var, ; ,#,  begin , call , if , procedure, while , id}
+SD(ConstAssigList → id = num ConstAssigList2) = {id}
+SD(ConstAssigList2 → , id = num ConstAssigList2) = { , }
+SD(ConstAssigList2 → λ) = { ; }
+SD(VarDecl → var IdList ;) = { var}
+SD(VarDecl → λ) = {procedure, #, ; , begin , call , if ,  while , id}
+SD(IdList → id IdList2) = {id}
+SD(IdList2 → , id IdList2) = { , }
+SD(IdList2 → λ) = { ; }
+SD(ProcDecl → procedure id ; Block ; ProcDecl) = { procedure}
+SD(ProcDecl → λ) = {id, call, begin, if, while, #, ;}
+SD(Statement → id := Expression) = {id}
+SD(Statement → call id) = {call}
+SD(Statement → begin StatementList end) = {begin}
+SD(Statement → if Condition then Statement) = {if}
+SD(Statement → while Condition do Statement) = {while}
+SD(Statement → λ) = {end, #, ;}
+SD(StatementList → Statement StatementList2) = {end, id, call, begin, if, while, ;}<-- Faltó punto y coma
+SD(StatementList2 → ; Statement StatementList2) = { ; }
+SD(StatementList2 → λ) = {end}
+SD(Condition → Expression Relation Expression) = {+, -, (, id, num}
+SD(Condition → odd Expression) = {odd}
+SD(Relation → =) = {=}
+SD(Relation → <>) = {<>}
+SD(Relation → <) = {<}
+SD(Relation → >) = {>}
+SD(Relation → <=) = {<=}
+SD(Relation → >=) = {>=}
+SD(Expression → SumOperator Term Expression2) = {+, -}
+SD(Expression → Term Expression2) = { (, id, num}
+SD(Expression2 → SumOperator Term Expression2) = {+, -}
+SD(Expression2 → λ) = {<, >, =, <>, <=, >=, do, then, ), end, #, ;}
+SD(SumOperator → +) = {+}
+SD(SumOperator → -) = {-}
+SD(Term →  Factor Term2) = { (, id, num}
+SD(Term2 → MultOperator Factor Term2) = {*, /}
+SD(Term2 → λ) = {+, - , # , <> , ) , end , > , ; , then , = , <= , do , < , >=}
+SD(MultOperator → *) = { * }
+SD(MultOperator → /) = { / }
+SD(Factor → ( Expression ) ) = { ( }
+SD(Factor → id) = {id}
+SD(Factor → num) = {num}
